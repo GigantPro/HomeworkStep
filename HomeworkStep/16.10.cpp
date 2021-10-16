@@ -12,11 +12,24 @@ void ShiftRight(int* mass, int lenght);
 
 int main()
 {
+	setlocale(LC_ALL, "Rus");
+	int len;
+	std::cout << "¬ведите размер массива: ";
+	std::cin >> len;
+	std::cout << "¬ведите элементы массива: " << std::endl;
+	int* mass = new int[len];
+	for (int i = 0; i < len; i++)
+	{
+		std::cin >> mass[i];
+	}
+	ReversePrint(mass, len);
+	std::cout << std::endl;
+	Sum(mass, len);
 
 }
-
 void ReversePrint(int* mass, int lenght)
 {
+	std::cout << "ReversePrint:" << std::endl;
 	for (int i = lenght; i > 0; i--)
 	{
 		std::cout << mass[i] << '\t';
@@ -24,25 +37,30 @@ void ReversePrint(int* mass, int lenght)
 }
 int Sum(int* mass, int lenght)
 {
+	
 	int summ = 0;
 	for (int i = 0; i < lenght; i++)
 	{
 		summ += mass[i];
 	}
+	std::cout << "Summ: " << summ << std::endl;
 	return summ;
 }
 double Avg(int* mass, int lenght)
 {
+	
 	int summ = 0;
 	for (int i = 0; i < lenght; i++)
 	{
 		summ += mass[i];
 	}
 	double srarr = summ / lenght;
+	std::cout << "Avg: " << srarr << std::endl;
 	return srarr;
 }
 int MinValueIn(int* mass, int lenght)
 {
+	
 	int min = mass[0];
 	for (int i = 0; i < lenght; i++)
 	{
@@ -51,10 +69,12 @@ int MinValueIn(int* mass, int lenght)
 			min = mass[i];
 		}
 	}
+	std::cout << "MinValueIn: " << min << std::endl;
 	return min;
 }
 int MaxValueIn(int* mass, int lenght)
 {
+	
 	int max = mass[0];
 	for (int i = 0; i < lenght; i++)
 	{
@@ -63,11 +83,12 @@ int MaxValueIn(int* mass, int lenght)
 			max = mass[i];
 		}
 	}
+	std::cout << "MaxValueIn: " << max << std::endl;
 	return max;
 }
 void Sort(int* mass, int lenght)
 {
-
+	std::cout << "Sort:" << std::endl;
 	for (int i = 0; i < lenght - 1; i++)
 	{
 		for (int j = 0; j < lenght; j++)
@@ -80,6 +101,11 @@ void Sort(int* mass, int lenght)
 			}
 		}
 	}
+	for (int i = 0; i < lenght; i++)
+	{
+		std::cout << mass[i] << std::endl;
+	}
+	std::cout << std::endl;
 }
 void ShiftLeft(int* mass, int lenght)
 {
