@@ -118,6 +118,18 @@ void ShiftLeft(int* mass, int lenght, int a)
 	int* tempmass = new int[lenght];
 	while (a > lenght)
 	{
+		a -= lenght;
+	}
+	if (a != 0)
+	{
 
+	}
+	else
+	{
+		for (int i = 0; i < lenght; i++)
+		{
+			std::cout << mass[i] << '\t';
+		}
+		std::cout << std::endl;
 	}
 }
