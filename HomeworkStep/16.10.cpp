@@ -25,12 +25,18 @@ int main()
 	ReversePrint(mass, len);
 	std::cout << std::endl;
 	Sum(mass, len);
+	Avg(mass, len);
+	MinValueIn(mass, len);
+	MaxValueIn(mass, len);
+	Sort(mass, len);
+	//ShiftLeft(mass, len);
+	//ShiftRight(mass, len);
 
 }
 void ReversePrint(int* mass, int lenght)
 {
 	std::cout << "ReversePrint:" << std::endl;
-	for (int i = lenght; i > 0; i--)
+	for (int i = lenght - 1; i >= 0; i--)
 	{
 		std::cout << mass[i] << '\t';
 	}
@@ -103,7 +109,7 @@ void Sort(int* mass, int lenght)
 	}
 	for (int i = 0; i < lenght; i++)
 	{
-		std::cout << mass[i] << std::endl;
+		std::cout << mass[i] << '\t';
 	}
 	std::cout << std::endl;
 }
