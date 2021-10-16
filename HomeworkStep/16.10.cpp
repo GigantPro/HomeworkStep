@@ -81,3 +81,7 @@ void Sort(int* mass, int lenght)
 		}
 	}
 }
+void ShiftLeft(int* mass, int lenght)
+{
+
+}
