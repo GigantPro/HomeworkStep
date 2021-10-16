@@ -92,7 +92,7 @@ int MaxValueIn(int* mass, int lenght)
 	std::cout << "MaxValueIn: " << max << std::endl;
 	return max;
 }
-void Sort(int* mass, int lenght)
+void Sort(int* mass, int lenght, int a)
 {
 	std::cout << "Sort:" << std::endl;
 	for (int i = 0; i < lenght - 1; i++)
@@ -113,7 +113,11 @@ void Sort(int* mass, int lenght)
 	}
 	std::cout << std::endl;
 }
-void ShiftLeft(int* mass, int lenght)
+void ShiftLeft(int* mass, int lenght, int a)
 {
+	int* tempmass = new int[lenght];
+	while (a > lenght)
+	{
 
+	}
 }
