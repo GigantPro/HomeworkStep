@@ -5,9 +5,8 @@ int Sum(int* mass, int lenght);
 double Avg(int* mass, int lenght);
 int MinValueIn(int* mass, int lenght);
 int MaxValueIn(int* mass, int lenght);
-void Sort(int* mass, int lenght);
-void ShiftLeft(int* mass, int lenght);
-void ShiftRight(int* mass, int lenght);
+int* Sort(int* mass, int lenght);
+
 
 
 int main()
@@ -24,11 +23,11 @@ int main()
 	}
 	ReversePrint(mass, len);
 	std::cout << std::endl;
-	Sum(mass, len);
-	Avg(mass, len);
-	MinValueIn(mass, len);
-	MaxValueIn(mass, len);
-	Sort(mass, len);
+	std::cout << Sum(mass, len) << std::endl;
+	std::cout << Avg(mass, len) << std::endl;
+	std::cout << MinValueIn(mass, len) << std::endl;
+	std::cout << MaxValueIn(mass, len) << std::endl;
+	std::cout << Sort(mass, len) << std::endl;
 	//ShiftLeft(mass, len);
 	//ShiftRight(mass, len);
 
@@ -49,7 +48,6 @@ int Sum(int* mass, int lenght)
 	{
 		summ += mass[i];
 	}
-	std::cout << "Summ: " << summ << std::endl;
 	return summ;
 }
 double Avg(int* mass, int lenght)
@@ -61,7 +59,6 @@ double Avg(int* mass, int lenght)
 		summ += mass[i];
 	}
 	double srarr = summ / lenght;
-	std::cout << "Avg: " << srarr << std::endl;
 	return srarr;
 }
 int MinValueIn(int* mass, int lenght)
@@ -75,7 +72,6 @@ int MinValueIn(int* mass, int lenght)
 			min = mass[i];
 		}
 	}
-	std::cout << "MinValueIn: " << min << std::endl;
 	return min;
 }
 int MaxValueIn(int* mass, int lenght)
@@ -89,12 +85,10 @@ int MaxValueIn(int* mass, int lenght)
 			max = mass[i];
 		}
 	}
-	std::cout << "MaxValueIn: " << max << std::endl;
 	return max;
 }
-void Sort(int* mass, int lenght, int a)
+int* Sort(int* mass, int lenght)
 {
-	std::cout << "Sort:" << std::endl;
 	for (int i = 0; i < lenght - 1; i++)
 	{
 		for (int j = 0; j < lenght; j++)
@@ -107,29 +101,5 @@ void Sort(int* mass, int lenght, int a)
 			}
 		}
 	}
-	for (int i = 0; i < lenght; i++)
-	{
-		std::cout << mass[i] << '\t';
-	}
-	std::cout << std::endl;
-}
-void ShiftLeft(int* mass, int lenght, int a)
-{
-	int* tempmass = new int[lenght];
-	while (a > lenght)
-	{
-		a -= lenght;
-	}
-	if (a != 0)
-	{
-
-	}
-	else
-	{
-		for (int i = 0; i < lenght; i++)
-		{
-			std::cout << mass[i] << '\t';
-		}
-		std::cout << std::endl;
-	}
+	return mass;
 }
