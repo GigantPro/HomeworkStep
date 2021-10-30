@@ -9,10 +9,10 @@ int* Sort(int* mass, int lenght);
 
 //Перегрузки
 void ReversePrint(double* mass, int lenght);
-int Sum(double* mass, int lenght);
+double Sum(double* mass, int lenght);
 double Avg(double* mass, int lenght);
-int MinValueIn(double* mass, int lenght);
-int MaxValueIn(double* mass, int lenght);
+double MinValueIn(double* mass, int lenght);
+double MaxValueIn(double* mass, int lenght);
 double* Sort(double* mass, int lenght);
 
 
@@ -36,19 +36,18 @@ int main()
 	std::cout << MinValueIn(mass, len) << std::endl;
 	std::cout << MaxValueIn(mass, len) << std::endl;
 	std::cout << Sort(mass, len) << std::endl;
-	delete mass;
-	double* mass = new double[len];
+	double* mas = new double[len];
 	for (int i = 0; i < len; i++)
 	{
-		std::cin >> mass[i];
+		std::cin >> mas[i];
 	}
-	ReversePrint(mass, len);
+	ReversePrint(mas, len);
 	std::cout << std::endl;
-	std::cout << Sum(mass, len) << std::endl;
-	std::cout << Avg(mass, len) << std::endl;
-	std::cout << MinValueIn(mass, len) << std::endl;
-	std::cout << MaxValueIn(mass, len) << std::endl;
-	std::cout << Sort(mass, len) << std::endl;
+	std::cout << Sum(mas, len) << std::endl;
+	std::cout << Avg(mas, len) << std::endl;
+	std::cout << MinValueIn(mas, len) << std::endl;
+	std::cout << MaxValueIn(mas, len) << std::endl;
+	std::cout << Sort(mas, len) << std::endl;
 
 }
 void ReversePrint(int* mass, int lenght)
@@ -133,7 +132,7 @@ void ReversePrint(double* mass, int lenght)
 		std::cout << mass[i] << '\t';
 	}
 }
-int Sum(double* mass, int lenght)
+double Sum(double* mass, int lenght)
 {
 
 	int summ = 0;
@@ -154,7 +153,7 @@ double Avg(double* mass, int lenght)
 	double srarr = summ / lenght;
 	return srarr;
 }
-int MinValueIn(double* mass, int lenght)
+double MinValueIn(double* mass, int lenght)
 {
 
 	int min = mass[0];
@@ -167,7 +166,7 @@ int MinValueIn(double* mass, int lenght)
 	}
 	return min;
 }
-int MaxValueIn(double* mass, int lenght)
+double MaxValueIn(double* mass, int lenght)
 {
 
 	int max = mass[0];
