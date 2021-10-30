@@ -7,6 +7,14 @@ int MinValueIn(int* mass, int lenght);
 int MaxValueIn(int* mass, int lenght);
 int* Sort(int* mass, int lenght);
 
+//Перегрузки
+void ReversePrint(double* mass, int lenght);
+int Sum(double* mass, int lenght);
+double Avg(double* mass, int lenght);
+int MinValueIn(double* mass, int lenght);
+int MaxValueIn(double* mass, int lenght);
+double* Sort(double* mass, int lenght);
+
 
 
 int main()
@@ -17,6 +25,19 @@ int main()
 	std::cin >> len;
 	std::cout << "Введите элементы массива: " << std::endl;
 	int* mass = new int[len];
+	for (int i = 0; i < len; i++)
+	{
+		std::cin >> mass[i];
+	}
+	ReversePrint(mass, len);
+	std::cout << std::endl;
+	std::cout << Sum(mass, len) << std::endl;
+	std::cout << Avg(mass, len) << std::endl;
+	std::cout << MinValueIn(mass, len) << std::endl;
+	std::cout << MaxValueIn(mass, len) << std::endl;
+	std::cout << Sort(mass, len) << std::endl;
+	delete mass;
+	double* mass = new double[len];
 	for (int i = 0; i < len; i++)
 	{
 		std::cin >> mass[i];
@@ -88,6 +109,80 @@ int MaxValueIn(int* mass, int lenght)
 	return max;
 }
 int* Sort(int* mass, int lenght)
+{
+	for (int i = 0; i < lenght - 1; i++)
+	{
+		for (int j = 0; j < lenght; j++)
+		{
+			if (mass[i] > mass[i + 1])
+			{
+				int temp = mass[j];
+				mass[j] = mass[j + 1];
+				mass[j + 1] = temp;
+			}
+		}
+	}
+	return mass;
+}
+
+
+//Перешрузки
+void ReversePrint(double* mass, int lenght)
+{
+	std::cout << "ReversePrint:" << std::endl;
+	for (int i = lenght - 1; i >= 0; i--)
+	{
+		std::cout << mass[i] << '\t';
+	}
+}
+int Sum(double* mass, int lenght)
+{
+
+	int summ = 0;
+	for (int i = 0; i < lenght; i++)
+	{
+		summ += mass[i];
+	}
+	return summ;
+}
+double Avg(double* mass, int lenght)
+{
+
+	int summ = 0;
+	for (int i = 0; i < lenght; i++)
+	{
+		summ += mass[i];
+	}
+	double srarr = summ / lenght;
+	return srarr;
+}
+int MinValueIn(double* mass, int lenght)
+{
+
+	int min = mass[0];
+	for (int i = 0; i < lenght; i++)
+	{
+		if (mass[i] < min)
+		{
+			min = mass[i];
+		}
+	}
+	return min;
+}
+int MaxValueIn(double* mass, int lenght)
+{
+
+	int max = mass[0];
+	for (int i = 0; i < lenght; i++)
+	{
+		if (mass[i] > max)
+		{
+			max = mass[i];
+		}
+	}
+	return max;
+}
+double* Sort(double* mass, int lenght)
 {
 	for (int i = 0; i < lenght - 1; i++)
 	{
