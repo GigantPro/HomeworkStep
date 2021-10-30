@@ -49,8 +49,6 @@ int main()
 	std::cout << MinValueIn(mass, len) << std::endl;
 	std::cout << MaxValueIn(mass, len) << std::endl;
 	std::cout << Sort(mass, len) << std::endl;
-	//ShiftLeft(mass, len);
-	//ShiftRight(mass, len);
 
 }
 void ReversePrint(int* mass, int lenght)
@@ -126,7 +124,7 @@ int* Sort(int* mass, int lenght)
 }
 
 
-//Перешрузки
+//Перегрузки
 void ReversePrint(double* mass, int lenght)
 {
 	std::cout << "ReversePrint:" << std::endl;
