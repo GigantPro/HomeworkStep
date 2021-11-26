@@ -1,197 +1,136 @@
 #include<iostream>
 
-void ReversePrint(int* mass, int lenght);
-int Sum(int* mass, int lenght);
-double Avg(int* mass, int lenght);
-int MinValueIn(int* mass, int lenght);
-int MaxValueIn(int* mass, int lenght);
-int* Sort(int* mass, int lenght);
-
-//ѕерегрузки
-void ReversePrint(double* mass, int lenght);
-double Sum(double* mass, int lenght);
-double Avg(double* mass, int lenght);
-double MinValueIn(double* mass, int lenght);
-double MaxValueIn(double* mass, int lenght);
-double* Sort(double* mass, int lenght);
-
-
+int give_counter(int* arr, int& size, bool flag = true);
+template <typename T, typename X>
+T push_back(T arr, int& size, X number);
+template <typename T, typename X>
+T push_front(T arr, int& size, X number);
+template <typename T, typename X>
+T insert(T arr, int ind, X number);
+template <typename T, typename X>
+T pop_back(T arr, int& size, X temp);
+template <typename T, typename X>
+T pop_front(T arr, int& size, X temp);
+template <typename T, typename X>
+T erase(T arr, int& size, int ind);
 
 int main()
 {
-	setlocale(LC_ALL, "Rus");
-	int len;
-	std::cout << "¬ведите размер массива: ";
-	std::cin >> len;
-	std::cout << "¬ведите элементы массива: " << std::endl;
-	int* mass = new int[len];
-	for (int i = 0; i < len; i++)
+	srand(1);
+	int size = 10;
+	int* mass_nach = new int[size];
+	for (int i = 0; i < size; i++)
 	{
-		std::cin >> mass[i];
+		mass_nach[i] = rand();
 	}
-	ReversePrint(mass, len);
-	std::cout << std::endl;
-	std::cout << Sum(mass, len) << std::endl;
-	std::cout << Avg(mass, len) << std::endl;
-	std::cout << MinValueIn(mass, len) << std::endl;
-	std::cout << MaxValueIn(mass, len) << std::endl;
-	std::cout << Sort(mass, len) << std::endl;
-	double* mas = new double[len];
-	for (int i = 0; i < len; i++)
+	int* even = new int[give_counter(mass_nach, size, true)];
+	int* odd = new int[give_counter(mass_nach, size, false)];
+	mass_nach = push_back(mass_nach, size, 123);
+	for (int i = 0; i < size; i++)
 	{
-		std::cin >> mas[i];
+		std::cout << mass_nach[i] << std::endl;
 	}
-	ReversePrint(mas, len);
-	std::cout << std::endl;
-	std::cout << Sum(mas, len) << std::endl;
-	std::cout << Avg(mas, len) << std::endl;
-	std::cout << MinValueIn(mas, len) << std::endl;
-	std::cout << MaxValueIn(mas, len) << std::endl;
-	std::cout << Sort(mas, len) << std::endl;
+	mass_nach = insert(mass_nach, 5, 0);
+	std::cout << mass_nach[5] << std::endl;
+	std::cout << mass_nach[size - 1] << std::endl;
+	mass_nach = pop_back(mass_nach, size, mass_nach[0]);
+	std::cout << mass_nach[size - 1] << std::endl;
+}
 
-}
-void ReversePrint(int* mass, int lenght)
+int give_counter(int* arr, int& size, bool flag)
 {
-	std::cout << "ReversePrint:" << std::endl;
-	for (int i = lenght - 1; i >= 0; i--)
+	if (flag == true)
 	{
-		std::cout << mass[i] << '\t';
-	}
-}
-int Sum(int* mass, int lenght)
-{
-	
-	int summ = 0;
-	for (int i = 0; i < lenght; i++)
-	{
-		summ += mass[i];
-	}
-	return summ;
-}
-double Avg(int* mass, int lenght)
-{
-	
-	int summ = 0;
-	for (int i = 0; i < lenght; i++)
-	{
-		summ += mass[i];
-	}
-	double srarr = summ / lenght;
-	return srarr;
-}
-int MinValueIn(int* mass, int lenght)
-{
-	
-	int min = mass[0];
-	for (int i = 0; i < lenght; i++)
-	{
-		if (mass[i] < min)
+		int counter = 0;
+		for (int i = 0; i < size; i++)
 		{
-			min = mass[i];
-		}
-	}
-	return min;
-}
-int MaxValueIn(int* mass, int lenght)
-{
-	
-	int max = mass[0];
-	for (int i = 0; i < lenght; i++)
-	{
-		if (mass[i] > max)
-		{
-			max = mass[i];
-		}
-	}
-	return max;
-}
-int* Sort(int* mass, int lenght)
-{
-	for (int i = 0; i < lenght - 1; i++)
-	{
-		for (int j = 0; j < lenght; j++)
-		{
-			if (mass[i] > mass[i + 1])
+			if (arr[i] % 2 == 0)
 			{
-				int temp = mass[j];
-				mass[j] = mass[j + 1];
-				mass[j + 1] = temp;
+				counter++;
 			}
 		}
+		return counter;
 	}
-	return mass;
-}
-
-
-//ѕерегрузки
-void ReversePrint(double* mass, int lenght)
-{
-	std::cout << "ReversePrint:" << std::endl;
-	for (int i = lenght - 1; i >= 0; i--)
+	else
 	{
-		std::cout << mass[i] << '\t';
-	}
-}
-double Sum(double* mass, int lenght)
-{
-
-	int summ = 0;
-	for (int i = 0; i < lenght; i++)
-	{
-		summ += mass[i];
-	}
-	return summ;
-}
-double Avg(double* mass, int lenght)
-{
-
-	int summ = 0;
-	for (int i = 0; i < lenght; i++)
-	{
-		summ += mass[i];
-	}
-	double srarr = summ / lenght;
-	return srarr;
-}
-double MinValueIn(double* mass, int lenght)
-{
-
-	int min = mass[0];
-	for (int i = 0; i < lenght; i++)
-	{
-		if (mass[i] < min)
+		int counter = 0;
+		for (int i = 0; i < size; i++)
 		{
-			min = mass[i];
-		}
-	}
-	return min;
-}
-double MaxValueIn(double* mass, int lenght)
-{
-
-	int max = mass[0];
-	for (int i = 0; i < lenght; i++)
-	{
-		if (mass[i] > max)
-		{
-			max = mass[i];
-		}
-	}
-	return max;
-}
-double* Sort(double* mass, int lenght)
-{
-	for (int i = 0; i < lenght - 1; i++)
-	{
-		for (int j = 0; j < lenght; j++)
-		{
-			if (mass[i] > mass[i + 1])
+			if (arr[i] % 2 != 0)
 			{
-				int temp = mass[j];
-				mass[j] = mass[j + 1];
-				mass[j + 1] = temp;
+				counter++;
 			}
 		}
+		return counter;
 	}
-	return mass;
 }
+
+template <typename T, typename X>
+T push_back(T arr, int& size, X number)
+{
+	size++;
+	T arr_new = new X[size];
+	arr_new[size - 1] = number;
+	for (int i = 0; i < size - 1; i++)
+	{
+		arr_new[i] = arr[i];
+	}
+	return arr_new;
+}
+
+
+template <typename T, typename X>
+T push_front(T arr, int& size, X number)
+{
+	size++;
+	T arr_new = new X[size + 1];
+	arr_new[0] = number;
+	for (int i = 1; i < size; i++)
+	{
+		arr_new[i] = arr[i];
+	}
+	return arr_new;
+}
+
+template <typename T, typename X>
+T insert(T arr, int ind, X number) { T new_arr = arr; new_arr[ind] = number; return new_arr; }
+
+template <typename T, typename X>
+T pop_back(T arr, int& size, X temp)
+{
+	size--;
+	T new_arr = new X[size];
+	for (int i = 0; i < size; i++)
+	{
+		new_arr[i] = arr[i];
+	}
+	return new_arr;
+}
+
+template <typename T, typename X>
+T pop_front(T arr, int& size, X temp)
+{
+	size--;
+	T new_arr = new X[size];
+	for (int i = 1; i < size; i++)
+	{
+		new_arr[i - 1] = arr[i];
+	}
+	return new_arr;
+}
+
+template <typename T, typename X>
+T erase(T arr, int& size, int ind)
+{
+	size--;
+	T new_arr = new X[size];
+	bool flag = false;
+	for (int i = 0; i < size; i++)
+	{
+		if (i == ind) { flag = true; }
+		if (flag == false) { new_arr[i] = arr[i]; }
+		else { new_arr[i - 1] = arr[i]; }
+	}
+	return new_arr;
+}
+
